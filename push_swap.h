@@ -25,11 +25,6 @@ void	rra(t_stack *stack);
 void	rrb(t_stack *stack);
 void	rrr(t_stack *stack);
 
-void	quickpart_a(t_stack *stack, int size);
-void	quickpart_b(t_stack *stack, int size);
-int find_pivot(int *stack, int size);
-
-
 
 
 #endif
