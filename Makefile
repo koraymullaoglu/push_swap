@@ -1,6 +1,6 @@
 NAME	=	push_swap
 
-SRCS	=	push_swap.c quicksort.c actions/push_ab.c \
+SRCS	=	push_swap.c quicksort.c quicksortII.c actions/push_ab.c \
 			actions/rev_rotate_ab.c actions/rotate_ab.c actions/swap_ab.c \
 			libft/libft.a ft_printf/libftprintf.a
 
