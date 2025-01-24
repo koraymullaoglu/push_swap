@@ -1,6 +1,6 @@
 NAME	=	push_swap
 
-SRCS	=	
+SRCS	=	actions/push_ab.c actions/rev_rotate_ab.c actions/rotate_ab.c actions/swap_ab.c ft_printf/libftprintf.a
 
 
 CC	=	gcc
@@ -18,7 +18,7 @@ clean:
 		make clean -C libft
 		make clean -C ft_printf
 
-fclean: clean
+fclean: clean	
 		make fclean -C libft
 		make fclean -C ft_printf
 		$(RM) $(NAME)

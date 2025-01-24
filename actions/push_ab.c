@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:39:11 by femullao          #+#    #+#             */
-/*   Updated: 2025/01/23 18:07:56 by femullao         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:39:32 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	pa(t_stack *stack)
 {
 	int i;
 
-	i = stack->size_a;
 	if (stack->size_b > 0)
 	{
+		i = stack->size_a;
 		while (i > 0)
 		{
 			stack->a[i] = stack->a[i - 1];
@@ -42,9 +42,9 @@ void	pb(t_stack *stack)
 {
 	int i;
 
-	i = stack->size_b;
 	if (stack->size_a > 0)
 	{
+		i = stack->size_b;
 		while (i > 0)
 		{
 			stack->b[i] = stack->b[i - 1];
