@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:22:02 by femullao          #+#    #+#             */
-/*   Updated: 2025/01/24 16:25:37 by femullao         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:58:14 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void ft_error(int *stack)
 {
 	free(stack);
 	ft_printf("Error\n");
-	exit (1)
+	exit (1);
 }
 
-int ft_atoi_ps(char *str, int * stack)
+int ft_atoi_ps(char *str, int *stack)
 {
 	unsigned int		i;
 	int					sgn;

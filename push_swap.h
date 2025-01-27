@@ -25,6 +25,15 @@ void	rra(t_stack *stack);
 void	rrb(t_stack *stack);
 void	rrr(t_stack *stack);
 
+void 	ft_error(int *stack);
+int 	ft_atoi_ps(char *str, int * stack);
+int		ft_strlen_ps(char **av);
+int 	ft_checksorted(int *stack, int size, int order);
+int		ft_checkdouble(int *stack, int size);
+
+int	sort(t_stack *stack, int size);
+
+
 
 
 #endif
