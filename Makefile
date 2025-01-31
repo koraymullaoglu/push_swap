@@ -1,11 +1,12 @@
 NAME	=	push_swap
 
-SRCS	=	actions/push_ab.c actions/rev_rotate_ab.c actions/rotate_ab.c actions/swap_ab.c ft_printf/libftprintf.a
+SRCS	=	actions/push_ab.c actions/rev_rotate_ab.c actions/rotate_ab.c \
+			actions/swap_ab.c ft_printf/libftprintf.a push_swap.c quicksort.c sorting_functions.c utils.c libft/libft.a
 
 
 CC	=	gcc
 RM	=	rm -f
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -g
 
 $(NAME): 
 		make -C libft

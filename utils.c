@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:22:02 by femullao          #+#    #+#             */
-/*   Updated: 2025/01/27 15:58:14 by femullao         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:56:28 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int ft_atoi_ps(char *str, int *stack)
 		r = (str[i] - '0') + (r * 10);
 		i++;
 	}
-	if (r > 2147483648 && sgn == -1 || r > 2147483647 && sgn == 1)
+	if ((r > 2147483648 && sgn == -1) || (r > 2147483647 && sgn == 1))
 		ft_error(stack);
 	return (r * sgn);
 }
@@ -88,7 +88,7 @@ int ft_checksorted(int *stack, int size, int order)
 	}
 }
 
-int	ft_checkdouble(int *stack, int size)
+void	ft_checkdouble(int *stack, int size)
 {
 	int i;
 	int j;
@@ -97,6 +97,7 @@ int	ft_checkdouble(int *stack, int size)
 	j = 0;
 	while (i < size)
 	{
+		j = i + 1;
 		while (j < size)
 		{
 			if (stack[i] == stack[j])
@@ -104,6 +105,5 @@ int	ft_checkdouble(int *stack, int size)
 			j++;
 		}
 		i++;
-		j = i + 1;
 	}
 }

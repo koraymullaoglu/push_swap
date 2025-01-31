@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:28:45 by femullao          #+#    #+#             */
-/*   Updated: 2025/01/27 18:41:33 by femullao         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:35:04 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,21 @@ int	sort(t_stack *stack, int size)
 	if (ft_checksorted(stack->a, stack->size_a, 0) == 0)
 	{
 		if (size == 2)
-			sa(stack->a);
+			sa(stack);
 		else if (size == 3)
 			sort_three(stack);
 		else
-			//quicksort_a;
+			quicksort_a(stack, size, 0);
+
 	}
 	return (0);
+}
+int	ft_push(t_stack *stack, int len, char c)
+{
+	if (c == 'a')
+		pa(stack);
+	else
+		pb(stack);
+	len--;
+	return (len);
 }
