@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "./ft_printf/inc/ft_printf.h"
+#include "libft/libft.h"
+#include <stdlib.h>
+
 
 void ft_error(int *stack)
 {

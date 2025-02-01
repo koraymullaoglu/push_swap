@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
+
 
 
 void	ft_little_sorter_a(t_stack *stack, int len)

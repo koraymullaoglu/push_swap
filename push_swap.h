@@ -1,10 +1,6 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-#include "libft/libft.h"
-#include "./ft_printf/inc/ft_printf.h"
-#include <stdlib.h>
-
 typedef struct s_stack
 {
 	int *a;

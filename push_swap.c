@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
+#include <stdlib.h>
+
 
 
 void push_swap(char **av)

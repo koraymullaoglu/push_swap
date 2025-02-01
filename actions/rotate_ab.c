@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include "../libft/libft.h"
+#include "../ft_printf/inc/ft_printf.h"
 
 void	ra(t_stack *stack)
 {
