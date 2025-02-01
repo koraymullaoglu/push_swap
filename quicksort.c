@@ -13,29 +13,31 @@
 #include "push_swap.h"
 
 
-void	ft_little_sorter_a(t_stack *stack, int length)
+void	ft_little_sorter_a(t_stack *stack, int len)
 {
-	if (length == 3 && stack->size_a == 3)
+	if (len == 3 && stack->size_a == 3)
 		sort_three(stack);
-	else if (length == 2)
+	else if (len == 2)
 	{
 		if (stack->a[0] > stack->a[1])
 			sa(stack);
 	}
-	else if (length == 3)
+	else if (len == 3)
 	{
-		while (length != 3 || !(stack->a[0] < stack->a[1]
-			 && stack->a[1] < stack->a[2]))
+		while (len != 3 || !(stack->a[0] < stack->a[1]
+				&& stack->a[1] < stack->a[2]))
 		{
-			if (length == 3 && stack->a[0] > stack->a[1] && stack->a[2])
+			if (len == 3 && stack->a[0] > stack->a[1] && stack->a[2])
 				sa(stack);
-			else if (length == 3 && !(stack->a[2] > stack->a[0]
+			else if (len == 3 && !(stack->a[2] > stack->a[0]
 					&& stack->a[2] > stack->a[1]))
-				length = ft_push(stack, length, 'b');
+				len = ft_push(stack, len, 'b');
 			else if (stack->a[0] > stack->a[1])
 				sa(stack);
-			else if (length++)
+			else if (len++)
+			{
 				pa(stack);
+			}
 		}
 	}
 }
@@ -85,66 +87,68 @@ int ft_getpivot(int *piv, int *stack, int size)
 	}
 	comparison_sort(tmp, size);
 	*piv = tmp[size / 2];
-	free (tmp);
+	free(tmp);
 	return (1);
 }
 
 
-int quicksort_a(t_stack *stack, int length, int ct_r)
+int	quicksort_a(t_stack *stack, int len, int cr)
 {
-	int piv;
-	int size;
+	int	piv;
+	int	size;
 
-	if (ft_checksorted(stack->a, length, 0) == 1)
+	if (ft_checksorted(stack->a, len, 0) == 1)
 		return (1);
-	size = length;
-	if (length <= 3)
+	size = len;
+	if (len <= 3)
 	{
-		ft_little_sorter_a(stack, length);
+		ft_little_sorter_a(stack, len);
 		return (1);
 	}
-	if (!ct_r &&  !ft_getpivot(&piv, stack->a, length))
-			return (0);
-	while (length != size / 2 + size % 2)
+	if (!cr && !ft_getpivot(&piv, stack->a, len))
+		return (0);
+	while (len != size / 2 + size % 2)
 	{
-		if (stack->a[0] < piv && (length--))
+		if (stack->a[0] < piv && (len--))
 			pb(stack);
-		else if (++ct_r)
+		else if (++cr)
 			ra(stack);
 	}
-	while (size / 2 + size % 2 != stack->size_a && ct_r--)
+	while (size / 2 + size % 2 != stack->size_a && cr--)
 		rra(stack);
-	return (quicksort_a(stack, size / 2 + size % 2, 0) && quicksort_b(stack, size / 2, 0));
+	return (quicksort_a(stack, size / 2 + size % 2, 0)
+		&& quicksort_b(stack, size / 2, 0));
 	return (1);
 }
 
-int quicksort_b(t_stack *stack, int length, int ct_r)
+int	quicksort_b(t_stack *stack, int len, int cr)
 {
-	int piv;
-	int size;
+	int	piv;
+	int	size;
 
-	if (!ct_r && ft_checksorted(stack->a, length, 0) == 1)
-		while (length--)
+	if (!cr && ft_checksorted(stack->b, len, 1) == 1)
+		while (len--)
 			pa(stack);
-	if (length <= 3)
+	if (len <= 3)
 	{
-		ft_little_sorter_b(stack, length);
+		ft_little_sorter_b(stack, len);
 		return (1);
 	}
-	size = length;
-	if (!ft_getpivot(&piv, stack->b, length))
+	size = len;
+	if (!ft_getpivot(&piv, stack->b, len))
 		return (0);
-	while (length != (size / 2))
+	while (len != size / 2)
 	{
-		if (stack->b[0] >= piv && (length--))
+		if (stack->b[0] >= piv && len--)
 			pa(stack);
-		else if (++ct_r)
+		else if (++cr)
 			rb(stack);
 	}
-	while (size / 2 != stack->size_b && ct_r--)
+	while (size / 2 != stack->size_b && cr--)
 		rrb(stack);
-	return (quicksort_a(stack, size / 2 + size % 2, 0) 
+	return (quicksort_a(stack, size / 2 + size % 2, 0)
 		&& quicksort_b(stack, size / 2, 0));
 }
+
 
 	

@@ -38,23 +38,24 @@ void comparison_sort(int *stack, int size)
 
 void	sort_three(t_stack *stack)
 {
-	if (stack->a[0] < stack->a[1] && stack->a[1] > stack->a[2] && stack->a[0] < stack->a[2])
+	if (stack->a[0] > stack->a[1] && stack->a[0] < stack->a[2] && stack->a[1] < stack->a[2])
+		sa(stack);
+	if (stack->a[0] > stack->a[1] && stack->a[0] > stack->a[2] && stack->a[1] > stack->a[2])
 	{
-		rra(stack);
 		sa(stack);
+		rra(stack);
 	}
-	if (stack->a[0] > stack->a[1] && stack->a[1] < stack->a[2] && stack->a[0] < stack->a[2])
-		sa(stack);
-	if (stack->a[0] < stack->a[1] && stack->a[1] > stack->a[2] && stack->a[0] > stack->a[2])
-		rra(stack);
-	if (stack->a[0] > stack->a[1] && stack->a[1] < stack->a[2] && stack->a[0] > stack->a[2])
+	if (stack->a[0] > stack->a[1] && stack->a[0] > stack->a[2] && stack->a[1] < stack->a[2])
 		ra(stack);
-	if (stack->a[0] > stack->a[1] && stack->a[1] > stack->a[2] && stack->a[0] > stack->a[2])
+	if (stack->a[0] < stack->a[1] && stack->a[0] < stack->a[2] && stack->a[1] > stack->a[2])
 	{
-		ra(stack);
 		sa(stack);
+		ra(stack);
 	}
+	if (stack->a[0] < stack->a[1] && stack->a[0] > stack->a[2] && stack->a[1] > stack->a[2])
+		rra(stack);
 }
+
 
 
 

@@ -64,6 +64,7 @@ int	ft_strlen_ps(char **av)
 int ft_checksorted(int *stack, int size, int order)
 {
 	int i;
+
 	if (order == 0)
 	{
 		i = 1;
@@ -80,7 +81,7 @@ int ft_checksorted(int *stack, int size, int order)
 		i = 1;
 		while (i < size)
 		{
-			if (stack[i - 1] > stack[i])
+			if (stack[i - 1] < stack[i])
 				return (0);
 			i++;
 		}
@@ -94,10 +95,9 @@ void	ft_checkdouble(int *stack, int size)
 	int j;
 	
 	i = 0;
-	j = 0;
+	j = 1;
 	while (i < size)
 	{
-		j = i + 1;
 		while (j < size)
 		{
 			if (stack[i] == stack[j])
@@ -105,5 +105,6 @@ void	ft_checkdouble(int *stack, int size)
 			j++;
 		}
 		i++;
+		j = i + 1;
 	}
 }
