@@ -6,7 +6,7 @@ SRCS	=	actions/push_ab.c actions/rev_rotate_ab.c actions/rotate_ab.c \
 
 CC	=	gcc
 RM	=	rm -f
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -g
 
 $(NAME): 
 		make -C libft

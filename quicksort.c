@@ -24,6 +24,7 @@ void	ft_little_sorter_a(t_stack *stack, int len)
 		if (stack->a[0] > stack->a[1])
 			sa(stack);
 	}
+	/*
 	else if (len == 3)
 	{
 		while (len != 3 || !(stack->a[0] < stack->a[1]
@@ -42,6 +43,7 @@ void	ft_little_sorter_a(t_stack *stack, int len)
 			}
 		}
 	}
+	*/
 }
 
 
@@ -120,7 +122,6 @@ int	quicksort_a(t_stack *stack, int len, int cr)
 		rra(stack);
 	return (quicksort_a(stack, size / 2 + size % 2, 0)
 		&& quicksort_b(stack, size / 2, 0));
-	return (1);
 }
 
 int	quicksort_b(t_stack *stack, int len, int cr)

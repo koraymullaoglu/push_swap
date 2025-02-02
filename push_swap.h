@@ -22,7 +22,7 @@ void	rrb(t_stack *stack);
 void	rrr(t_stack *stack);
 
 void 	ft_error(int *stack);
-int 	ft_atoi_ps(char *str, int * stack);
+int 	ft_atoi_ps(char *str, int *stack, int sgn);
 int		ft_strlen_ps(char **av);
 int 	ft_checksorted(int *stack, int size, int order);
 void	ft_checkdouble(int *stack, int size);

@@ -36,7 +36,7 @@ void push_swap(char **av)
 	}
 	stack.size_b = 0;
 	while (++i < size)
-		stack.a[i] = ft_atoi_ps(av[i], stack.a);
+		stack.a[i] = ft_atoi_ps(av[i], stack.a, 1);
 	ft_checkdouble(stack.a, size);
 	sort(&stack, size);
 	free(stack.a);

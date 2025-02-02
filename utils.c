@@ -23,15 +23,13 @@ void ft_error(int *stack)
 	exit (1);
 }
 
-int ft_atoi_ps(char *str, int *stack)
+int ft_atoi_ps(char *str, int *stack, int sgn)
 {
 	unsigned int		i;
-	int					sgn;
 	unsigned long int	r;
 	
 	i = 0;
 	r = 0;
-	sgn = 1;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -40,15 +38,16 @@ int ft_atoi_ps(char *str, int *stack)
 			sgn = -1;
 		i++;
 	}
+	if (str[i] == '\0')
+		ft_error(stack);
 	while (str[i])
 	{
 		if (str[i] > '9' || str[i] < '0')
 			ft_error(stack);
-		r = (str[i] - '0') + (r * 10);
-		i++;
+		r = (str[i++] - '0') + (r * 10);
 	}
 	if ((r > 2147483648 && sgn == -1) || (r > 2147483647 && sgn == 1))
-		ft_error(stack);
+		ft_error(stack);		
 	return (r * sgn);
 }
 
