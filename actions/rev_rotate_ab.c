@@ -16,11 +16,11 @@
 
 void	rra(t_stack *stack)
 {
-	int tmp;
-	int i;
+	int	tmp;
+	int	i;
 
 	if (stack->size_a == 0 || stack->size_a == 1)
-		return;
+		return ;
 	i = stack->size_a - 1;
 	tmp = stack->a[i];
 	while (i)
@@ -34,11 +34,11 @@ void	rra(t_stack *stack)
 
 void	rrb(t_stack *stack)
 {
-	int tmp;
-	int i;
+	int	tmp;
+	int	i;
 
 	if (stack->size_b == 0 || stack->size_b == 1)
-		return;
+		return ;
 	i = stack->size_b - 1;
 	tmp = stack->b[i];
 	while (i)
@@ -50,7 +50,7 @@ void	rrb(t_stack *stack)
 	ft_printf("rrb\n");
 }
 
-void rrr(t_stack *stack)
+void	rrr(t_stack *stack)
 {
 	int	tmp;
 	int	i;

@@ -6,20 +6,19 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:28:45 by femullao          #+#    #+#             */
-/*   Updated: 2025/01/31 18:35:04 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:05:14 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-
-void comparison_sort(int *stack, int size)
+void	comparison_sort(int *stack, int size)
 {
-	int i;
-	int j;
-	int tmp;
-	
+	int	i;
+	int	j;
+	int	tmp;
+
 	i = 0;
 	while (i < size)
 	{
@@ -30,7 +29,7 @@ void comparison_sort(int *stack, int size)
 			{
 				tmp = stack[i];
 				stack[i] = stack[j];
-				stack[j] = tmp;	
+				stack[j] = tmp;
 			}
 			j++;
 		}
@@ -40,26 +39,28 @@ void comparison_sort(int *stack, int size)
 
 void	sort_three(t_stack *stack)
 {
-	if (stack->a[0] > stack->a[1] && stack->a[0] < stack->a[2] && stack->a[1] < stack->a[2])
+	if (stack->a[0] > stack->a[1] && stack->a[0] < stack->a[2]
+		&& stack->a[1] < stack->a[2])
 		sa(stack);
-	if (stack->a[0] > stack->a[1] && stack->a[0] > stack->a[2] && stack->a[1] > stack->a[2])
+	if (stack->a[0] > stack->a[1]
+		&& stack->a[0] > stack->a[2] && stack->a[1] > stack->a[2])
 	{
 		sa(stack);
 		rra(stack);
 	}
-	if (stack->a[0] > stack->a[1] && stack->a[0] > stack->a[2] && stack->a[1] < stack->a[2])
+	if (stack->a[0] > stack->a[1] && stack->a[0] > stack->a[2]
+		&& stack->a[1] < stack->a[2])
 		ra(stack);
-	if (stack->a[0] < stack->a[1] && stack->a[0] < stack->a[2] && stack->a[1] > stack->a[2])
+	if (stack->a[0] < stack->a[1] && stack->a[0] < stack->a[2]
+		&& stack->a[1] > stack->a[2])
 	{
 		sa(stack);
 		ra(stack);
 	}
-	if (stack->a[0] < stack->a[1] && stack->a[0] > stack->a[2] && stack->a[1] > stack->a[2])
+	if (stack->a[0] < stack->a[1] && stack->a[0] > stack->a[2]
+		&& stack->a[1] > stack->a[2])
 		rra(stack);
 }
-
-
-
 
 int	sort(t_stack *stack, int size)
 {
@@ -71,10 +72,10 @@ int	sort(t_stack *stack, int size)
 			sort_three(stack);
 		else
 			quicksort_a(stack, size, 0);
-
 	}
 	return (0);
 }
+
 int	ft_push(t_stack *stack, int len, char c)
 {
 	if (c == 'a')

@@ -16,8 +16,8 @@
 
 void	sa(t_stack *stack)
 {
-	int t;
-	
+	int	t;
+
 	if (stack->size_a == 0 || stack->size_a == 1)
 		return ;
 	t = 0;
@@ -29,8 +29,8 @@ void	sa(t_stack *stack)
 
 void	sb(t_stack *stack)
 {
-	int t;
-	
+	int	t;
+
 	if (stack->size_b == 0 || stack->size_b == 1)
 		return ;
 	t = 0;
@@ -42,11 +42,11 @@ void	sb(t_stack *stack)
 
 void	ss(t_stack *stack)
 {
-	int t;
+	int	t;
 
 	if ((stack->size_a == 0 || stack->size_a == 1)
 		|| (stack->size_b == 0 || stack->size_b == 1))
-		return;
+		return ;
 	t = 0;
 	t = stack->a[0];
 	stack->a[0] = stack->a[1];

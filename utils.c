@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:22:02 by femullao          #+#    #+#             */
-/*   Updated: 2025/01/31 18:56:28 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:15:03 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,18 @@
 #include "libft/libft.h"
 #include <stdlib.h>
 
-
-void ft_error(int *stack)
+void	ft_error(int *stack)
 {
 	free(stack);
 	ft_printf("Error\n");
 	exit (1);
 }
 
-int ft_atoi_ps(char *str, int *stack, int sgn)
+int	ft_atoi_ps(char *str, int *stack, int sgn)
 {
 	unsigned int		i;
 	unsigned long int	r;
-	
+
 	i = 0;
 	r = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
@@ -47,16 +46,16 @@ int ft_atoi_ps(char *str, int *stack, int sgn)
 		r = (str[i++] - '0') + (r * 10);
 	}
 	if ((r > 2147483648 && sgn == -1) || (r > 2147483647 && sgn == 1))
-		ft_error(stack);		
+		ft_error(stack);
 	return (r * sgn);
 }
 
 int	ft_strlen_ps(char **av)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(*av)
+	while (*av)
 	{
 		av++;
 		i++;
@@ -64,9 +63,9 @@ int	ft_strlen_ps(char **av)
 	return (i);
 }
 
-int ft_checksorted(int *stack, int size, int order)
+int	ft_checksorted(int *stack, int size, int order)
 {
-	int i;
+	int	i;
 
 	if (order == 0)
 	{
@@ -94,9 +93,9 @@ int ft_checksorted(int *stack, int size, int order)
 
 void	ft_checkdouble(int *stack, int size)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	j = 1;
 	while (i < size)

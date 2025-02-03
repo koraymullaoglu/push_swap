@@ -14,9 +14,7 @@
 #include "libft/libft.h"
 #include <stdlib.h>
 
-
-
-void push_swap(char **av)
+void	push_swap(char **av)
 {
 	t_stack		stack;
 	int			size;
@@ -26,13 +24,13 @@ void push_swap(char **av)
 	size = ft_strlen_ps(av);
 	stack.a = malloc(sizeof(int) * size);
 	if (!stack.a)
-		return;
+		return ;
 	stack.size_a = size;
-	stack.b = malloc(sizeof(int)* size);
+	stack.b = malloc(sizeof(int) * size);
 	if (!stack.b)
 	{
 		free(stack.a);
-		return;
+		return ;
 	}
 	stack.size_b = 0;
 	while (++i < size)
@@ -40,11 +38,10 @@ void push_swap(char **av)
 	ft_checkdouble(stack.a, size);
 	sort(&stack, size);
 	free(stack.a);
-	free(stack.b);	
+	free(stack.b);
 }
 
-
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac > 1)
 	{
