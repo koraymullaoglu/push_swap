@@ -6,20 +6,23 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:22:02 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/03 16:15:03 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:42:10 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "./ft_printf/inc/ft_printf.h"
 #include "libft/libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-void	ft_error(int *stack)
+int	check_lim(char *str, unsigned long int res, int	*stack)
 {
-	free(stack);
-	ft_printf("Error\n");
-	exit (1);
+	char	*c;
+
+	c = ft_itoa(res);
+	if (ft_strncmp(str, c, ft_strlen(str)) == 0)
+		return (res);
+	return (ft_error(stack), 0);
 }
 
 int	ft_atoi_ps(char *str, int *stack, int sgn)
@@ -47,6 +50,7 @@ int	ft_atoi_ps(char *str, int *stack, int sgn)
 	}
 	if ((r > 2147483648 && sgn == -1) || (r > 2147483647 && sgn == 1))
 		ft_error(stack);
+	r = check_lim(str, r, stack);
 	return (r * sgn);
 }
 
