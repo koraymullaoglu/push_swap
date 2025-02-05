@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:22:02 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/03 17:42:10 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:08:05 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	check_lim(char *str, unsigned long int res, int	*stack)
+int	check_lim(char *str, unsigned long int res, t_stack	*stack)
 {
 	char	*c;
 
 	c = ft_itoa(res);
+	if (str[0] == '+')
+		str++;
 	if (ft_strncmp(str, c, ft_strlen(str)) == 0)
-		return (res);
-	return (ft_error(stack), 0);
+		return (free(c), res);
+	return (free(c), ft_error(stack), 0);
 }
 
-int	ft_atoi_ps(char *str, int *stack, int sgn)
+int	ft_atoi_ps(char *str, t_stack *stack, int sgn)
 {
 	unsigned int		i;
 	unsigned long int	r;
@@ -50,8 +52,8 @@ int	ft_atoi_ps(char *str, int *stack, int sgn)
 	}
 	if ((r > 2147483648 && sgn == -1) || (r > 2147483647 && sgn == 1))
 		ft_error(stack);
-	r = check_lim(str, r, stack);
-	return (r * sgn);
+	r = check_lim(str, r * sgn, stack);
+	return (r);
 }
 
 int	ft_strlen_ps(char **av)
@@ -95,7 +97,7 @@ int	ft_checksorted(int *stack, int size, int order)
 	}
 }
 
-void	ft_checkdouble(int *stack, int size)
+void	ft_checkdouble(t_stack *stack, int size)
 {
 	int	i;
 	int	j;
@@ -106,7 +108,7 @@ void	ft_checkdouble(int *stack, int size)
 	{
 		while (j < size)
 		{
-			if (stack[i] == stack[j])
+			if (stack->a[i] == stack->a[j])
 				ft_error(stack);
 			j++;
 		}

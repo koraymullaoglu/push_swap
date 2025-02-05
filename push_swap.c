@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:01:20 by femullao          #+#    #+#             */
-/*   Updated: 2025/01/27 18:44:25 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:15:17 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	push_swap(char **av)
 	}
 	stack.size_b = 0;
 	while (++i < size)
-		stack.a[i] = ft_atoi_ps(av[i], stack.a, 1);
-	ft_checkdouble(stack.a, size);
+		stack.a[i] = ft_atoi_ps(av[i], &stack, 1);
+	ft_checkdouble(&stack, size);
 	sort(&stack, size);
 	free(stack.a);
 	free(stack.b);
@@ -49,6 +49,11 @@ int	main(int ac, char **av)
 		if (ac == 2)
 			av = ft_split(*av, ' ');
 		push_swap(av);
+		if (ac == 2)
+		{
+			free(*av);
+			free(av);
+		}
 		return (0);
 	}
 	return (0);
