@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:01:20 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/05 19:15:17 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:34:47 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include "libft/libft.h"
 #include <stdlib.h>
 
-void	push_swap(char **av)
+void	push_swap(t_data *data)
 {
 	t_stack		stack;
 	int			size;
 	int			i;
 
 	i = -1;
-	size = ft_strlen_ps(av);
+	size = ft_strlen_ps(data->argv);
 	stack.a = malloc(sizeof(int) * size);
 	if (!stack.a)
 		return ;
@@ -34,8 +34,8 @@ void	push_swap(char **av)
 	}
 	stack.size_b = 0;
 	while (++i < size)
-		stack.a[i] = ft_atoi_ps(av[i], &stack, 1);
-	ft_checkdouble(&stack, size);
+		stack.a[i] = ft_atoi_ps(data->argv[i], &stack, 1, data);
+	ft_checkdouble(&stack, size, data);
 	sort(&stack, size);
 	free(stack.a);
 	free(stack.b);
@@ -43,16 +43,20 @@ void	push_swap(char **av)
 
 int	main(int ac, char **av)
 {
-	if (ac > 1)
+	t_data data;
+	
+	data.ac = ac;
+	if (data.ac > 1)
 	{
 		av++;
-		if (ac == 2)
-			av = ft_split(*av, ' ');
-		push_swap(av);
-		if (ac == 2)
+		data.argv = av;
+		if (data.ac == 2)
+			data.argv = ft_split(*data.argv, ' ');
+		push_swap(&data);
+		if (data.ac == 2)
 		{
-			free(*av);
-			free(av);
+			free(*data.argv);
+			free(data.argv);
 		}
 		return (0);
 	}

@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:59:46 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/05 19:15:27 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:35:14 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ typedef struct s_stack
 	int	size_a;
 	int	size_b;
 }	t_stack;
+
+typedef struct s_data
+{
+	char **argv;
+	int 	ac;
+}	t_data;
 
 
 
@@ -35,11 +41,11 @@ void		rra(t_stack *stack);
 void		rrb(t_stack *stack);
 void		rrr(t_stack *stack);
 
-void		ft_error(t_stack *stack);
-int			ft_atoi_ps(char *str, t_stack *stack, int sgn);
+void		ft_error(t_stack *stack, t_data *data);
+int			ft_atoi_ps(char *str, t_stack *stack, int sgn, t_data *data);
 int			ft_strlen_ps(char **av);
 int			ft_checksorted(int *stack, int size, int order);
-void		ft_checkdouble(t_stack *stack, int size);
+void		ft_checkdouble(t_stack *stack, int size, t_data *data);
 
 int			sort(t_stack *stack, int size);
 int			ft_push(t_stack *stack, int len, char c);

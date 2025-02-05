@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:22:02 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/05 19:08:05 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:34:11 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	check_lim(char *str, unsigned long int res, t_stack	*stack)
+int	check_lim(char *str, unsigned long int res, t_stack	*stack, t_data *data)
 {
 	char	*c;
 
@@ -24,10 +24,10 @@ int	check_lim(char *str, unsigned long int res, t_stack	*stack)
 		str++;
 	if (ft_strncmp(str, c, ft_strlen(str)) == 0)
 		return (free(c), res);
-	return (free(c), ft_error(stack), 0);
+	return (free(c), ft_error(stack, data), 0);
 }
 
-int	ft_atoi_ps(char *str, t_stack *stack, int sgn)
+int	ft_atoi_ps(char *str, t_stack *stack, int sgn, t_data *data)
 {
 	unsigned int		i;
 	unsigned long int	r;
@@ -43,16 +43,16 @@ int	ft_atoi_ps(char *str, t_stack *stack, int sgn)
 		i++;
 	}
 	if (str[i] == '\0')
-		ft_error(stack);
+		ft_error(stack, data);
 	while (str[i])
 	{
 		if (str[i] > '9' || str[i] < '0')
-			ft_error(stack);
+			ft_error(stack, data);
 		r = (str[i++] - '0') + (r * 10);
 	}
 	if ((r > 2147483648 && sgn == -1) || (r > 2147483647 && sgn == 1))
-		ft_error(stack);
-	r = check_lim(str, r * sgn, stack);
+		ft_error(stack, data);
+	r = check_lim(str, r * sgn, stack, data);
 	return (r);
 }
 
@@ -97,7 +97,7 @@ int	ft_checksorted(int *stack, int size, int order)
 	}
 }
 
-void	ft_checkdouble(t_stack *stack, int size)
+void	ft_checkdouble(t_stack *stack, int size, t_data *data)
 {
 	int	i;
 	int	j;
@@ -109,7 +109,7 @@ void	ft_checkdouble(t_stack *stack, int size)
 		while (j < size)
 		{
 			if (stack->a[i] == stack->a[j])
-				ft_error(stack);
+				ft_error(stack, data);
 			j++;
 		}
 		i++;
