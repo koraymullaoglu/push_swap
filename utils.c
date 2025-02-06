@@ -6,14 +6,13 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:22:02 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/05 19:34:11 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:34:19 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 int	check_lim(char *str, unsigned long int res, t_stack	*stack, t_data *data)
 {

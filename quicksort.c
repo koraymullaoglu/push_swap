@@ -6,12 +6,12 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:02:55 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/03 16:02:21 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:52:41 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
+#include <stdlib.h>
 
 void	ft_little_sorter_a(t_stack *stack, int len)
 {

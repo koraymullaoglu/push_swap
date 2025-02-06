@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:59:46 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/05 19:35:14 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:36:41 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ typedef struct s_stack
 
 typedef struct s_data
 {
-	char **argv;
-	int 	ac;
+	char	**argv;
+	int		ac;
 }	t_data;
-
-
 
 void		pa(t_stack *stack);
 void		pb(t_stack *stack);

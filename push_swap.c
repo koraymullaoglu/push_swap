@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:01:20 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/05 19:34:47 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:35:56 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	push_swap(t_data *data)
 
 int	main(int ac, char **av)
 {
-	t_data data;
-	
+	t_data	data;
+
 	data.ac = ac;
 	if (data.ac > 1)
 	{

@@ -2,23 +2,31 @@ NAME	=	push_swap
 
 SRCS	=	actions/push_ab.c actions/rev_rotate_ab.c actions/rotate_ab.c \
 			actions/swap_ab.c ft_printf/libftprintf.a push_swap.c quicksort.c \
-			sorting_functions.c utils.c libft/libft.a ft_error.c
+			sorting_functions.c utils.c ft_error.c  libft/libft.a 
 
 
-CC	=	gcc
+OBJS = $(SRCS:.c=.o)
+
+
+CC	=	cc
 RM	=	rm -f
-FLAGS	= -Wall -Wextra -Werror -g
+FLAGS	= -Wall -Wextra -Werror
 
-$(NAME): 
+$(NAME): $(OBJS)
 		make -C libft
 		make -C ft_printf
 		$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 
 all: $(NAME)
 
+%.o:%.c
+	$(CC) $(FLAGS) -c $< -o $@
+
+
 clean:
 		make clean -C libft
 		make clean -C ft_printf
+		
 
 fclean: clean	
 		make fclean -C libft
