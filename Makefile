@@ -1,37 +1,42 @@
-NAME	=	push_swap
+NAME = push_swap
 
-SRCS	=	actions/push_ab.c actions/rev_rotate_ab.c actions/rotate_ab.c \
-			actions/swap_ab.c ft_printf/libftprintf.a push_swap.c quicksort.c \
-			sorting_functions.c utils.c ft_error.c  libft/libft.a 
+CC = cc
 
+FLAGS = -Wall -Wextra -Werror 
 
-OBJS = $(SRCS:.c=.o)
+SRC	=	actions/push_ab.c \
+		actions/rev_rotate_ab.c \
+		actions/rotate_ab.c \
+		actions/swap_ab.c \
+		push_swap.c \
+		quicksort.c \
+		sorting_functions.c \
+		utils.c ft_error.c
 
+OBJ = $(SRC:.c=.o)
 
-CC	=	cc
-RM	=	rm -f
-FLAGS	= -Wall -Wextra -Werror
-
-$(NAME): $(OBJS)
-		make -C libft
-		make -C ft_printf
-		$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+FTPRINTF = ft_printf/libftprintf.a
+LIBFT = libft/libft.a
 
 all: $(NAME)
 
-%.o:%.c
+$(NAME): $(OBJ)
+	make -C ft_printf
+	make -C libft
+	$(CC) $(FLAGS) $(OBJ) $(FTPRINTF) $(LIBFT) -o $(NAME)
+
+%.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
-
 clean:
-		make clean -C libft
-		make clean -C ft_printf
-		
+	make clean -C libft
+	make clean -C ft_printf
+	rm -f $(OBJ)
 
-fclean: clean	
-		make fclean -C libft
-		make fclean -C ft_printf
-		$(RM) $(NAME)
+fclean: clean
+	make fclean -C libft
+	make fclean -C ft_printf
+	rm -f $(NAME)
 
 re: fclean all
 
