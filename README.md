@@ -4,7 +4,7 @@
 
 <p align="center">
 	<img src="https://img.shields.io/badge/status-finished-success?color=%2312bab9&style=flat-square"/>
-	<img src="https://img.shields.io/github/languages/top/koraymullaoglu/pushswap?color=%2312bab9&style=flat-square"/>
+	<img src="https://img.shields.io/github/languages/top/koraymullaoglu/push_swap?color=%2312bab9&style=flat-square"/>
 	<a href='https://www.linkedin.com/in/mullaoglukoray' target="_blank"><img alt='Linkedin' src='https://img.shields.io/badge/LinkedIn-100000?style=flat-square&logo=Linkedin&logoColor=white&labelColor=0A66C2&color=0A66C2'/></a>
 </p>
 
@@ -25,7 +25,7 @@
 ## HOW TO USE
 #### 1º - Clone the repository
 ```git
-git clone git@github.com:koraymullaoglu/pushswap.git
+git clone git@github.com:koraymullaoglu/push_swap.git
 ```
 
 #### 2º - Enter the project folder
@@ -74,4 +74,4 @@ If you find any issues or have suggestions for improvements, feel free to fork t
 
 ## LICENSE
 
-This project is available under the MIT License. For further details, please refer to the [LICENSE](https://github.com/koraymullaoglu/pushswap/blob/main/LICENSE) file.
+This project is available under the MIT License. For further details, please refer to the [LICENSE](https://github.com/koraymullaoglu/push_swap/blob/main/LICENSE) file.
